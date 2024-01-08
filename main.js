@@ -86,14 +86,45 @@ console.log(rest);
  Write a range function that takes two arguments, start and end, and returns an array containing all the numbers from start up to (and including) end.
 **/
 
+function readInbetweenTheNumbers(start, finish){
+  for (let i = start; i <= finish; i++){
+    console.log(i)
+  }
+}
+
+readInbetweenTheNumbers(1, 4)
+
 //2. 
 
 /**
  Next, write a sum function that takes an array of numbers and returns the sum of these numbers. Run the example program and see whether it does indeed return 55.
 **/
 
+function addThemAllUp(array){
+  //an array has to be given. the array will have value[0] and value[1]. all the values inbetween must be added together
+  let total = 0
+  for (let i = array[0]; i <= array[1]; i++){
+    total += i
+  }
+  console.log(total)
+  return
+  // let total = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  // console.log(total);
+
+}
+
+addThemAllUp([1, 10])
+
 //3.
 
 /**
  As a bonus assignment, modify your range function to take an optional third argument that indicates the “step” value used when building the array. If no step is given, the elements go up by increments of one, corresponding to the old behavior. The function call range(1, 10, 2) should return [1, 3, 5, 7, 9]. Make sure it also works with negative step values so that range(5, 2, -1) produces [5, 4, 3, 2].
+
 **/
+
+function showTheNumbers(start, finish, step){
+  for (let i = start; i <= finish; i +=step){
+    console.log(i)
+  }
+}
+showTheNumbers(1,10,2)
