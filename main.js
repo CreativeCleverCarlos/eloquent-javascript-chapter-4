@@ -1,5 +1,10 @@
 //https://eloquentjavascript.net/04_data.html
 
+
+//the video will explain in greater detail wtf is going on
+
+//https://www.youtube.com/watch?v=fEnf9MzeBz0 
+
 //it VERY quickly and briefly touches big topics.
 
 
@@ -128,3 +133,83 @@ function showTheNumbers(start, finish, step){
   }
 }
 showTheNumbers(1,10,2)
+
+//4.
+
+/**
+ Arrays have a reverse method that changes the array by inverting the order in which its elements appear. For this exercise, write two functions, reverseArray and reverseArrayInPlace. The first, reverseArray, takes an array as argument and produces a new array that has the same elements in the inverse order. The second, reverseArrayInPlace, does what the reverse method does: it modifies the array given as argument by reversing its elements. Neither may use the standard reverse method.
+**/
+
+//no reverse method is allowed
+
+function reverseArrayIntoNewArray(array){
+   let newArray = []
+  // for (const element of array){
+  //   newArray = array[element].unshift()
+  // }
+
+  for (let i = array.length - 1; i >= 0; i-- ){ //without the minus one here, index 0 becomes undefined
+    newArray.push(array[i]);
+  }
+  return newArray
+}
+console.log(reverseArrayIntoNewArray([5,3,1]))
+
+
+//5.
+//this is a monster that I'll need to break down... cause i don't even know what it is that it's asking of me
+
+/**
+ Objects, as generic blobs of values, can be used to build all sorts of data structures. A common data structure is the list (not to be confused with array). A list is a nested set of objects, with the first object holding a reference to the second, the second to the third, and so on.
+
+let list = {
+  value: 1,
+  rest: {
+    value: 2,
+    rest: {
+      value: 3,
+      rest: null
+    }
+  }
+};
+
+Write a function arrayToList that builds up a list structure like the one shown when given [1, 2, 3] as argument
+**/
+
+function arrayToList(array){
+  list = null
+  for (let i = array.length - 1; i >= 0; i-- ){ //when going backwards, remember to always have that minus one, otherwise undefined will be there
+     list = {value: array[i], rest: list};
+  }
+  return list;
+}
+
+console.log(arrayToList([4,6,3]))
+
+//6. 
+
+/**
+  Also write a listToArray function that produces an array from a list. 
+**/
+
+
+  function listToArray(list){
+    let array = []
+    for (let node = list; node; node = node.rest){ //real talk, i have no idea what this even does. as in, i don't even know where to start with taking this apart
+      array.push(node.value)
+    }
+    return array;
+  }
+console.log(listToArray(arrayToList([10, 20, 30])))
+//7.
+
+/**
+  Then add a helper function prepend, which takes an element and a list and creates a new list that adds the element to the front of the input list, and nth, which takes a list and a number and returns the element at the given position in the list (with zero referring to the first element) or undefined when there is no such element.
+
+**/
+
+//8 
+
+/**
+  If you haven’t already, also write a recursive version of nth.
+**/
